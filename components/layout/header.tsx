@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -90,18 +91,12 @@ export default function Header({
       "after:absolute after:-bottom-0.5 after:left-0 after:h-[1.5px] after:w-full",
       "after:origin-left after:scale-x-0 after:transition-transform after:duration-200 after:content-['']",
       overlay
-        ? [
-            active
-              ? "text-hero-foreground after:scale-x-100"
-              : "text-hero-foreground-muted hover:text-hero-foreground hover:after:scale-x-100",
-            "after:bg-hero-foreground",
-          ]
-        : [
-            active
-              ? "text-foreground after:scale-x-100"
-              : "text-foreground-muted hover:text-foreground hover:after:scale-x-100",
-            "after:bg-brand-orange",
-          ],
+        ? active
+          ? "text-hero-foreground after:scale-x-100 after:bg-hero-foreground"
+          : "text-hero-foreground-muted hover:text-hero-foreground hover:after:scale-x-100 after:bg-hero-foreground"
+        : active
+          ? "text-foreground after:scale-x-100 after:bg-brand-orange"
+          : "text-foreground-muted hover:text-foreground hover:after:scale-x-100 after:bg-brand-orange",
     );
 
   return (
